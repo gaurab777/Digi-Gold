@@ -1,0 +1,26 @@
+{% extends 'users/common.html' %} {% load crispy_forms_tags %} {% load static %}
+{% block main %}
+<div class="container mt-5 mb-5 col-md-6" style="margin-top: 148px">
+  <div class="mb-2">
+    <div class="card p-3">
+      <div class="d-flex align-items-center">
+        <div class="ml-3 w-100">
+          <h2>Your Details</h2>
+          <h4 class="mb-0 mt-0"><p>Username: {{ user.username }}</p></h4>
+          <span>{{ user.email }}</span>
+          <p>{{ user.phone_number }}</p>
+        </div>
+      </div>
+      <div>
+        <h4>Total Amount of Digital Gold Available (in gm).</h4>
+        {{ user.goldWeight }}
+      </div>
+    </div>
+  </div>
+  <form method="POST" class="form-signin" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group">{{ user_change_form|crispy }}</fieldset>
+    <button class="btn btn-outline-info" type="submit">Update</button>
+  </form>
+</div>
+{% endblock main %}

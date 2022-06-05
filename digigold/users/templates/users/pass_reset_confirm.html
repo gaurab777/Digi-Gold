@@ -1,0 +1,18 @@
+{% extends 'users/common.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 col-md-5" style="margin-top: 148px">
+	<div class="mb-3 mt-3">
+		<h2>Reset Password?</h2>
+		<h5>Enter the details below.</h5>
+		<form method = "POST" class="form-signin">
+			{% csrf_token %}
+			<fieldset class = "form-group">
+			{{ form|crispy }}
+			</fieldset>
+			<button class = "btn btn-outline-info" type="submit">Reset Password</button>
+		</form>
+	</div>
+</div>
+{% endblock main %}

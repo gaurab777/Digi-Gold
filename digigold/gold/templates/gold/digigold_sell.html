@@ -1,0 +1,44 @@
+{% extends 'users/common.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block main %}
+    <div class="container col-md-5 col">
+			<div class="container">
+				<p>Ongoing Gold Rate</p>
+				{{ goldType }}
+				{{ goldrate }}
+			</div>
+			<div class="container">
+				{{ user.username }}
+				{{ user.email }}
+				<p>Your remaining balance.</p>
+				{{ user.goldWeight }}
+			</div>
+        <div class="mb-3 mt-5">
+            <p class="h4 mb-4">Sell Gold</p>
+            <form method = "POST" class="form-signin" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class = "form-group">
+                {{ form|crispy }}
+                </fieldset>
+                <button class = "btn btn-outline-info" type="submit">Sell</button>
+            </form>
+        </div>
+    </div>
+	<script>
+		function goldWeightRate(weight) {
+					return (weight/11.66 * {{goldrate}});
+		}
+		$('[name="weight"]').on('change keyup', function() {
+			data = $(this).val();
+			$('[name="rate"]').val(goldWeightRate(data));
+		})
+		function goldRateWeight(rate) {
+					return (rate / {{goldrate}})*11.66;
+		}
+		$('[name="rate"]').on('change keyup', function() {
+			data = $(this).val();
+			$('[name="weight"]').val(goldRateWeight(data));
+		})
+	</script>
+{% endblock main %}

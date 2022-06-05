@@ -1,0 +1,40 @@
+{% extends 'users/common.html' %} {% load crispy_forms_tags %} {% load static %}
+{% block main %}
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<div class="container col-md-5 col">
+  <div class="mb-3">
+    <div class="container">
+      <p>Ongoing Gold Rate</p>
+      {{ goldType }} {{ goldrate }}
+    </div>
+    <div class="container">
+      {{ user.username }} {{ user.email }}
+      <p>Your remaining balance.</p>
+      {{ user.goldWeight }}
+    </div>
+    <p class="h4 mb-4 mt-5">Buy Gold</p>
+    <form method="POST" class="form-signin" enctype="multipart/form-data">
+      {% csrf_token %}
+      <fieldset class="form-group">{{ form|crispy }}</fieldset>
+      <button class="btn btn-outline-info" type="submit">Buy</button>
+    </form>
+  </div>
+</div>
+<script>
+  function goldWeightRate(weight) {
+  			return (weight/11.66 * {{ goldrate }});
+  }
+  $('[name="weight"]').on('change keyup', function() {
+  	data = $(this).val();
+  	$('[name="rate"]').val(goldWeightRate(data));
+  })
+  function goldRateWeight(rate) {
+  			return (rate / {{goldrate}})*11.66;
+  }
+  $('[name="rate"]').on('change keyup', function() {
+  	data = $(this).val();
+  	$('[name="weight"]').val(goldRateWeight(data));
+  })
+</script>
+{% endblock main %}

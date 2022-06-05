@@ -1,0 +1,9 @@
+{% extends 'users/common.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block main %}
+	<div class="container pt-3 mt-5" style="margin-top: 148px">
+		<h1>Logged Out</h1>
+        <a href="{% url 'users_login' %}">Login</a>
+	</div>
+{% endblock main %}

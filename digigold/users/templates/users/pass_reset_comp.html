@@ -1,0 +1,9 @@
+{% extends 'users/common.html' %}
+{% block main %}
+<div class="alert alert-dark">
+    Successfully changed your password. Please sign in again with your new password.
+</div>
+<div class="text-center pt-3 border-top" style="margin-top: 148px">
+    <p>Proceed to <a href="{% url 'users_login' %}">Log In</a></p>
+</div>
+{% endblock main %}

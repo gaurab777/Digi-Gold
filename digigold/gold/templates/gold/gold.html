@@ -1,0 +1,124 @@
+{% extends 'users/common.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-5 col-md-3">
+	<h5>{{ goldType }}<h5> <b>{{ goldRate }}
+</div>
+
+	<div style="height: 1000px;">
+
+	<div class="home" style="height: 400px; margin-bottom:20px;">
+		<!-- Home Slider -->
+		<div class="home_slider_container">
+		<div class="owl-carousel owl-theme home_slider">
+			<!-- Slide -->
+			<div class="owl-item">
+			<div class="background_image">
+				<img src="{% static 'images/gold_bars.jpg' %}" alt="banner1" />
+			</div>
+			</div>
+
+			<!-- Slide -->
+			<div class="owl-item">
+			<div class="background_image">
+				<img src="{% static 'images/digitalgold.gif' %}" alt="banner2" />
+			</div>
+			<div class="home_slider_content_container"></div>
+			</div>
+		</div>
+		</div>
+		<!---->
+		<!---->
+		<style>
+			#myDIV {
+			width: 100%;
+
+			border: 15px solid coral;
+			animation: mymove 8s infinite;
+			margin-bottom: 0px;
+			background-color: lightblue;
+			}
+
+			@keyframes mymove {
+			50% {border-color: lightblue;}
+			}
+		</style>
+	  </div>
+
+		<div id="myDIV">
+			<figure class="text-center" >
+			<blockquote class="blockquote">
+				<p style="font-size: larger; ">Buy Digital Gold </p>
+				<p>Your one stop gold investment website.</p>
+			</blockquote>
+			<figcaption class="blockquote-footer">
+				<cite title="Source Title">Digi Gold</cite>
+			</figcaption>
+			</figure>
+			</div>
+
+			<div class="intro">
+				<div class="container">
+				  <div class="row">
+					<div class="col">
+					  <div class="intro_container">
+						<div class="row">
+						  <!-- Intro Item -->
+						  <div class="col-lg-4 intro_col">
+							<div
+							  class="intro_item d-flex flex-row align-items-end justify-content-start"
+							>
+							  <div class="intro_icon"></div>
+							  <div class="intro_content">
+								<div class="intro_title">Digital Gold</div>
+								<div class="intro_subtitle">
+								  <p style="color: black;">
+									Digi Gold gives you direct ownership of vaulted gold at an ultra low cost.
+									
+								  </p>
+								</div>
+							  </div>
+							</div>
+						  </div>
+		
+						  <!-- Intro Item -->
+						  <div class="col-lg-4 intro_col">
+							<div
+							  class="intro_item d-flex flex-row align-items-end justify-content-start"
+							>
+							  <div class="intro_icon"></div>
+							  <div class="intro_content">
+								<div class="intro_title">
+								  The Best Prices and Services
+								</div>
+								<div class="intro_subtitle">
+								  <p style="color: black;">Buy 99.9 % pure digital gold at best price and buy for at little as Rs. 100.</p>
+								</div>
+							  </div>
+							</div>
+						  </div>
+		
+						  <!-- Intro Item -->
+						  <div class="col-lg-4 intro_col">
+							<div
+							  class="intro_item d-flex flex-row align-items-end justify-content-start"
+							>
+							  <div class="intro_content">
+								<div class="intro_title">Amazing Services</div>
+								<div class="intro_subtitle">
+								  <p style="color: black;">A free account will provide you with 24/7 access, a best-in-class user experience, and the peace of mind that comes through dealing with industry leaders.</p>
+								</div>
+							  </div>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+	</div>
+
+	  
+{% endblock main %}
